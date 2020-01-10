@@ -1,0 +1,35 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "PurchaseConfirm";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+<h1 class="text">Thank you for buying @Model.Title</h1>
+
+<div class="grid">
+    <article class="card product-item">
+        <a asp-controller="Product" asp-action="browse">
+            <header class="card__header">
+                <h1 class="product__title center freakshowText">
+                    Keep Shopping
+                </h1>
+            </header>
+            <div class="card__image center">
+                <img src="~/img/shop.png" class="" />
+            </div>
+        </a>
+    </article>
+ 
+        <article class="card product-item">
+            <a asp-controller="User" asp-action="Cart">
+                <header class="card__header">
+                    <h1 class="product__title center freakshowText">
+                        Checkout
+                    </h1>
+                </header>
+                <div class="card__image center">
+                    <img src="~/img/pay.jpg" class="" />
+                </div>
+            </a>
+        </article>
+    </div>

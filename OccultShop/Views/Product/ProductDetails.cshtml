@@ -1,0 +1,60 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "~/Views/Shared/_Header.cshtml";
+
+}
+
+
+<div class="prod-layout">
+    <img src="@Model.imgPath" class="" />
+</div>
+<div class="prod-layout">
+    <p> @Model.Title </p>
+    <p> @Model.Price</p>
+</div>
+<form method="post">
+    Quantity:<select name="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <input type="hidden" name="ID" value="@Model.ProductId" />
+    <button class="btn" type="submit" name="command" value="AddCart">Add to Cart</button>
+</form>
+<div>
+    <p>@Model.Description</p>
+</div>
+
+@{
+
+} <h4>Reviews</h4>
+@foreach (Review r in Model.Reviews)
+{
+    <div>
+
+        <p>Review by:@r.Author</p>
+        @r.ReviewText
+    </div>
+}
+
+
+<div>
+    <h4 class="freakshowText">Write a Review</h4>
+    <form class="ReviewForm" method="post">
+        <div class="commentForm">
+            <label for="Name">Name:</label>
+            <input for="Name" name="Name" />
+        </div>
+        <div class="ReviewForm">
+            <label for="reviewText">Review</label>
+            <textarea name="reviewText" rows="6" cols="40"></textarea>
+        </div>
+        <hidden input for="ID" value=@Model.ProductId></hidden>
+        <button class="btn" type="submit" name="command" value="AddReview">Submit</button>
+
+
+    </form>
+
+</div>

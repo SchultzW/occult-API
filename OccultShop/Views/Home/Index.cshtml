@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+@model List<Product>
+
+<div class="container">
+    <div class="jumbotron titlebox">
+        <div class="titlesize">
+            <h1>Madame Angelique’s Occult and Esoteric Emporium </h1>
+        </div>
+        <div class="subtitlesize">
+            <p>A one stop shop for the seekers of the arcane unknown!</p>
+        </div>
+    </div>
+
+    <div class="eye">
+        <img src="~/img/eye3.png" />
+    </div>
+    <div class="myHeader">
+        <p> <div class="bigHeader">Behold</div> the marvelous and dazzling <div class="bigHeader">Products</div> available now!</p>
+    </div>
+
+    <div class="grid">
+
+
+        @foreach (Product p in Model)
+        {
+
+            <article class="card product-item">
+                <a asp-controller="Product" asp-action="ProductDetails"asp-route-id="@p.ProductId">
+                    <header class="card__header">
+                        <h1 class="product__title center freakshowText">
+                            @p.Title
+                        </h1>
+                    </header>
+                    <div class="card__image center">
+                        <img src="@p.imgPath" class="" />
+                    </div>
+                    <div class="card__content">
+                        <p class="product__description">
+                            $@p.Price
+                        </p>
+                    </div>
+                </a>
+            </article>
+
+        }
+
+    </div>

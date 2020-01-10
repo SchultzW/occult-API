@@ -1,0 +1,55 @@
+﻿@model List<CartItem>
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+
+
+<div class="">
+    @foreach (CartItem i in Model)
+     {
+        <div class="">
+            <div class="prod-layout">
+                <img src="@i.CartProd.imgPath" class="" />
+            </div>
+            <div class="prod-layout">
+                <p>@i.CartProd.Title</p>
+                <p>$@i.CartProd.Price</p>
+                <p>Quantity: @i.Quantity</p>
+            </div>
+        </div>
+        <div>
+            <form method="post">
+                <button class="btn">Remove Item</button>
+                <input type="hidden" name="ID" value="@i.CartItemID" />
+
+            </form>
+            
+
+        </div>
+
+    }
+</div>
+<div>
+    @{ 
+        int total = 0;
+        foreach(CartItem i in Model)
+        {
+            total += (i.Quantity * i.CartProd.Price);
+        }
+    }
+    Total:$@total
+    
+      
+</div>
+<form method="post">
+    <button class="btn" type="submit" name="command" value="checkout">Checkout</button>
+    <input type="hidden" value="s" />
+</form>
+
+
+
+
+
+

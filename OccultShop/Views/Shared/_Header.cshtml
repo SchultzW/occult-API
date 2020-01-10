@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+
+    @*these scripts are for validating username is unique*@
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+
+</head>
+<body>
+    <div class="navbar">
+        <a asp-controller="Home" asp-action="index">Home</a>
+
+        <a asp-controller="Product" asp-action="Browse">Browse</a>
+
+        <a asp-controller="User" asp-action="Cart">Your Cart</a>
+
+        <a asp-controller="User" asp-action="Profile">Profile</a>
+
+        <a asp-controller="User" asp-action="Horoscope">Horoscopes</a>
+
+        
+        <div class="nav-right">
+            <a asp-controller="Home" asp-action="aboutus">About Us</a>
+
+            <a asp-controller="User" asp-action="signin">Sign In</a>
+        </div>
+        
+       
+        
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="footer">
+    Madame Angelique’s Occult and Esoteric Emporium 
+    </footer>
+</body>
+</html>

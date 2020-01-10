@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OccultShop", "OccultShop\OccultShop.csproj", "{8E3AECF5-56F0-48B1-9B62-F2BE31455478}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E3AECF5-56F0-48B1-9B62-F2BE31455478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3AECF5-56F0-48B1-9B62-F2BE31455478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3AECF5-56F0-48B1-9B62-F2BE31455478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3AECF5-56F0-48B1-9B62-F2BE31455478}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {855C7F12-B5CD-4073-88D5-8C00E6736337}
+	EndGlobalSection
+EndGlobal
