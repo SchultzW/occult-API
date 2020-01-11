@@ -48,6 +48,7 @@ namespace Midterm
             services.AddTransient<IReviewRepo, ReviewRepo>();
             services.AddTransient<ICartItemRepo, CartItemRepo>();
             services.AddTransient<ICartRepo, CartRepo>();
+            services.AddTransient<IUserRepo, UserRepo>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration["ConnectionStrings:LocalDbConnection"]));
             

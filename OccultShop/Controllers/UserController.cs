@@ -162,26 +162,34 @@ namespace Midterm.Controllers
              ModelState.GetValidationState(nameof(email))==ModelValidationState.Valid)
             {
                 User u = new User();
-                u.FirstName = firstName;
-                u.LastName = lastName;
-                u.Password = password;
-                u.Address = address;
-                u.Email = email;
-                u.Zip = zip;
-                u.State = state;
+                u.FirstName = firstName.Trim();
+                u.LastName = lastName.Trim();
+                u.Password = password.Trim();
+                u.Address = address.Trim();
+                u.Email = email.Trim();
+                u.Zip = zip.Trim();
+                u.State = state.Trim();
+                u.City = city.Trim();
 
                 uRepo.AddUser(u);
-                
+                return View("Profile");
+
+
             }
 
-            return Profile();
+            return View("UserSignUpInfo");
         }
+        
         [HttpGet]
         public ActionResult SignIn()
         {
             return View();
         }
-     
+        [HttpGet]
+        public ActionResult Admin()
+        {
+            return View();
+        }
         private List<CartItem> GetCart()
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();

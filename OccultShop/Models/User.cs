@@ -15,16 +15,16 @@ namespace Midterm.Models
         public int UserId { get; set; }
         private AppDbContext context;
         
-        [Required(ErrorMessage = "That Username is taken")]
-        [Remote("CheckUser","User",HttpMethod ="POST") ]
-        public string UserName { get; set; }
+        //[Required(ErrorMessage = "That Username is taken")]
+        //[Remote("CheckUser","User",HttpMethod ="POST") ]
+        //public string UserName { get; set; }
 
-        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$")]
         [Required(ErrorMessage = "Please enter a first name")]
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$", ErrorMessage = "Please enter a first name")]
         public string FirstName { get; set; }
 
-        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$")]
-        [Required(ErrorMessage ="Please enter a last name")]
+        [Required(ErrorMessage = "Please enter a last name")]
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$",ErrorMessage = "Please enter a last name")]
         public string LastName { get; set; }
 
         [DataType(DataType.Password)]
@@ -41,12 +41,15 @@ namespace Midterm.Models
         public string Address { get; set; }
 
         [Required(ErrorMessage ="Please enter a valid zip code")]
-        [RegularExpression(@"^[0-9]{5}(?:-[0-9]{4})?$")]
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "Please enter a valid zip code")]
         public string Zip { get; set; }
 
         [Required]
         public string State { get; set; }
 
+        [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$", ErrorMessage = "Please enter a City")]
+        [Required(ErrorMessage = "Please enter a City")]
+        public string City { get; set; }
         public bool IsAdmin { get; set; }
 
        

@@ -14,33 +14,41 @@
 
 
     <form method="post" class="signup-container">
-        <div asp-validation-summary="ModelOnly" class="text-warning"></div> 
-        <div><span asp-validation-for="UserName"></span></div>
+        <div asp-validation-summary="All" class="required"></div>
+        @*<div><span asp-validation-for="UserName"></span></div>
         <div class="signin-form">
             Username <input asp-for="UserName" type="text" name="username" size="35" asp-validation-for="username"/>
-        </div>
-
-        <div class="signin-form">
-            Password <input for="password1" type="password" name="password1" size="35" asp-validation-for="password"/>
-        </div>
-        <div class="signin-form">
-            Confirm Password <input for="password" type="password" name="password" size="35" asp-validation-for="password"/>
-        </div>
+        </div>*@
+        <div><span asp-validation-for="FirstName" class="required"></span></div>
         <div class=" signin-form">
-            First Name <input form="FirstName" type="text" name="FirstName" size="35" asp-validation-for="firstName"/>
+            First Name <input asp-for="FirstName" type="text" name="FirstName" size="35" />
+        </div>
+        <div><span asp-validation-for="LastName"class="required"></span></div>
+        <div class="signin-form">
+            Last Name  <input asp-for="LastName" type="text" name="LastName" size="35"  />
+        </div>
+        <div><span asp-validation-for="Email" class="required"></span></div>
+        <div class="signin-form">
+            Email <input asp-for="Email" type="text" name="Email" size="35"  />
+        </div>
+        <div><span asp-validation-for="Password" class="required"></span></div>
+        <div class="signin-form">
+            Password <input asp-for="Password" type="password" name="password1" size="35"  />
         </div>
         <div class="signin-form">
-            Last Name  <input form="LastName" type="text" name="LastName" size="35" asp-validation-for="lastName"/>
+            Confirm Password <input asp-for="Password" type="password" name="password" size="35"  />
         </div>
+        <div><span asp-validation-for="Address" class="required"></span></div>
         <div class="signin-form">
-            Address  <input form="Address" type="text" name="Address" size="35" asp-validation-for="address"/>
+            Address  <input asp-for="Address" type="text" name="Address" size="35"  />
         </div>
+        <div><span asp-validation-for="City" class="required"></span></div>
         <div class="signin-form">
-            City  <input form="City" type="text" name="City" size="35" asp-validation-for="city"/>
+            City  <input asp-for="City" type="text" name="city" size="35"  />
         </div>
         <div class="signin-form">
             State
-            <select name="State" asp-validation-for="state">
+            <select name="State">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -94,8 +102,9 @@
                 <option value="WY">Wyoming</option>
             </select>
         </div>
+        <div><span asp-validation-for="Zip" class="required"></span></div>
         <div class="signin-form">
-            Zip Code <input for="Zip" type="text" name="zip" size="35" asp-validation-for="zip"/>
+            Zip Code <input asp-for="Zip" type="text" name="zip" size="35" />
         </div>
 
         <button class="btn" type="submit">Submit</button>
