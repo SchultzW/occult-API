@@ -28,6 +28,7 @@ namespace Midterm.Models
         public void AddProd(Product p)
         {
             context.Add(p);
+            context.SaveChanges();
         }
         public Product GetProdByID(int id)
         {

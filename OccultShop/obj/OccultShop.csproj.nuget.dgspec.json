@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj": {}
+    "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj": {
+    "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj",
+        "projectUniqueName": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj",
         "projectName": "OccultShop",
-        "projectPath": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj",
-        "packagesPath": "C:\\Users\\CTL Staff 1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\obj\\",
+        "projectPath": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj",
+        "packagesPath": "C:\\Users\\wills\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\CTL Staff 1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wills\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
