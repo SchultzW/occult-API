@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Midterm.Models
 {
-    public class User
+    public class AppUser
     {
         private static List<Cart> cart = new List<Cart>();
         public static List<Cart> Cart { get { return cart; } }
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
         private AppDbContext context;
         
         //[Required(ErrorMessage = "That Username is taken")]
@@ -32,9 +32,9 @@ namespace Midterm.Models
         [StringLength(60, MinimumLength = 8)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Please enter an email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        //[Required(ErrorMessage = "Please enter an email")]
+        //[EmailAddress]
+        //public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter an address")]
         [StringLength(60, MinimumLength = 3)]
@@ -42,6 +42,7 @@ namespace Midterm.Models
 
         [Required(ErrorMessage ="Please enter a valid zip code")]
         [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "Please enter a valid zip code")]
+        [DataType(DataType.PostalCode)]
         public string Zip { get; set; }
 
         [Required]

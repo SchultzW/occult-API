@@ -153,7 +153,7 @@ namespace Midterm.Controllers
                                             string lastName, string address, string city, string state,string zip,string email )
         {
             if (ModelState.GetValidationState(nameof(address)) == ModelValidationState.Valid &&
-            password.Equals(password1) &&
+            //password.Equals(password1) &&
              ModelState.GetValidationState(nameof(firstName)) == ModelValidationState.Valid &&
               ModelState.GetValidationState(nameof(lastName)) == ModelValidationState.Valid &&
              ModelState.GetValidationState(nameof(city)) == ModelValidationState.Valid &&
@@ -161,12 +161,12 @@ namespace Midterm.Controllers
              ModelState.GetValidationState(nameof(state)) == ModelValidationState.Valid &&
              ModelState.GetValidationState(nameof(email))==ModelValidationState.Valid)
             {
-                User u = new User();
+                AppUser u = new AppUser();
                 u.FirstName = firstName.Trim();
                 u.LastName = lastName.Trim();
                 u.Password = password.Trim();
                 u.Address = address.Trim();
-                u.Email = email.Trim();
+                //u.Email = email.Trim();
                 u.Zip = zip.Trim();
                 u.State = state.Trim();
                 u.City = city.Trim();
@@ -208,7 +208,7 @@ namespace Midterm.Controllers
                 p.imgPath = imgpath.Trim();
                 p.Tag = tag;
                 p.IsNew = isNew;
-                pRepo.AddProd(p);
+                //pRepo.AddProd(p);
             }
 
 

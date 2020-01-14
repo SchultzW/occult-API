@@ -27,31 +27,45 @@ namespace Midterm.Controllers
 
         public IActionResult Index()
         {
-            List<Product> newProdList = new List<Product>();
-            List<int> Ids = new List<int>();
-            Ids = RandomProds();
-
-
-
-            List<Product> qProds = (from prod in pRepo.Products
-                                    where prod.IsNew == true
-                                    select prod).ToList();
-
-
-
-
-            foreach (int id in Ids)
+            try
             {
-                newProdList.Add(qProds[id]);
+                List<Product> newProdList = new List<Product>();
+                List<int> Ids = new List<int>();
+                Ids = RandomProds();
+
+
+
+                List<Product> qProds = (from prod in pRepo.Products
+                                        where prod.IsNew == true
+                                        select prod).ToList();
+
+                foreach (int id in Ids)
+                {
+                    newProdList.Add(qProds[id]);
+                }
+
+                return View(newProdList);
             }
+            catch
+            {
+                return View("Error");
+               
+            }
+            //List<Product> newProdList = new List<Product>();
+            //List<int> Ids = new List<int>();
+            //Ids = RandomProds();
 
-            
-            
-          
-           
 
 
-            return View(newProdList);
+            //List<Product> qProds = (from prod in pRepo.Products
+            //                        where prod.IsNew == true
+            //                        select prod).ToList();
+
+            //foreach (int id in Ids)
+            //{
+            //    newProdList.Add(qProds[id]);
+            //}
+            //return View();
         }
         private Cart GetCart()
         {
@@ -90,6 +104,10 @@ namespace Midterm.Controllers
             return Ids;
             
            
+        }
+        public ViewResult Error()
+        {
+            return View();
         }
 
         public void FillRepo()

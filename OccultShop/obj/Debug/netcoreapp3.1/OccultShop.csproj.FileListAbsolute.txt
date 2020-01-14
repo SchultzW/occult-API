@@ -323,7 +323,6 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.csprojAssemblyReference.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\staticwebassets\OccultShop.StaticWebAssets.Manifest.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\staticwebassets\OccultShop.StaticWebAssets.xml
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.RazorAssemblyInfo.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.RazorAssemblyInfo.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.AssemblyInfoInputs.cache
@@ -333,7 +332,6 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.RazorCoreGenerate.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\AboutUs.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\Browse.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\ProductDetails.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\Products.cshtml.g.cs
@@ -360,3 +358,7 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.csproj.CopyComplete
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.pdb
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\error.cshtml.g.cs
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\web.config
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

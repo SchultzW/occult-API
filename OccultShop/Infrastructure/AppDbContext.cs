@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Midterm.Models;
 using OccultShop.Models;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Midterm.Infrastructure
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext
     {
 
         public AppDbContext(
@@ -16,7 +17,7 @@ namespace Midterm.Infrastructure
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
-        public DbSet<User> Users { get; set;}
+        //public DbSet<AppUser> Users { get; set;} maybe we dont need?
         public DbSet<Review> Reviews { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
 
