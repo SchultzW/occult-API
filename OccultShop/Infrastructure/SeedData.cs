@@ -14,7 +14,7 @@ namespace OccultShop.Infrastructure
     {
         public static void Seed(AppDbContext context)
         {
-            if(!context.Products.Any())
+            if (!context.Products.Any())
             {
                 Product product = new Product();
                 product.Title = "Jar of Whispers";
@@ -25,6 +25,9 @@ namespace OccultShop.Infrastructure
                 product.IsNew = false;
                 context.Products.Add(product);
 
+
+
+
                 product = new Product();
                 product.Title = "Unknown Book from the Library of Jurgen Leitner";
                 product.Price = 40;
@@ -33,6 +36,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/JergenBook.jpg";
                 product.IsNew = false;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "A Wooden Spoon";
@@ -42,15 +46,17 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/woodenspoon.jpg";
                 product.IsNew = false;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Necronomicon";
                 product.Price = 88;
-                product.Description = "The Necronomicon has been a staple in any mystic's library. It contains accounts of the Old Ones, their history, and how to summon them.(Legal Disclaimer: We are not responsible for any personal physical or mental injury from attempting to perform a summoning ritural contained in this book.)";
+                product.Description = "The Necronomicon has been a staple in any mystic's library. It contains accounts of the Old Ones.(Legal Disclaimer: We are not responsible for any personal physical or mental injury from attempting to perform a summoning ritural contained in this book.)";
                 product.Tag = "Books";
                 product.imgPath = "/img/necronomicon.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Garden Gome";
@@ -60,15 +66,17 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/gnome.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Spirit Board";
                 product.Price = 22;
                 product.Description = "A real spirit board to communicate with the great beyond. This is a great gift for teenagers that enjoy venturing into abandoned buildings or a birthday present for your favorite medium. (Legal Disclaimer: We are not responsible for any posessions that may come from using this product.";
                 product.Tag = "Home";
-                product.imgPath = "/img/SpiritBoard.jpg";             
+                product.imgPath = "/img/SpiritBoard.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Creepy Thing";
@@ -78,12 +86,13 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/creepy.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 Review r = new Review();
                 r.Author = "James";
                 r.ReviewID = 1;
                 r.ReviewText = "Y'AI'NG'NGAH YOG - SOTHOTH H'EE-L'GEB F'AI THRODOG UAAAH";
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "A Black Obelisk";
@@ -93,7 +102,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/obelisk.jpg";
                 product.IsNew = true;
                 product.Reviews.Add(r);
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Classy Table Lamp";
@@ -103,6 +112,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/tablelamp.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Amulet of Nyarlathotep";
@@ -112,7 +122,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/amulet";
                 product.IsNew = false;
                 context.Products.Add(product);
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Sacrificial Dagger";
@@ -122,7 +132,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/dagger";
                 product.IsNew = false;
                 context.Products.Add(product);
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Hidden Bookcase Door";
@@ -132,7 +142,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/bookcase";
                 product.IsNew = true;
                 context.Products.Add(product);
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Mask of Hastur";
@@ -142,7 +152,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/mask";
                 product.IsNew = false;
                 context.Products.Add(product);
-
+                context.SaveChanges();
 
                 product = new Product();
                 product.Title = "Robes";
@@ -152,7 +162,7 @@ namespace OccultShop.Infrastructure
                 product.imgPath = "/img/robe";
                 product.IsNew = false;
                 context.Products.Add(product);
-
+                context.SaveChanges();
 
 
 

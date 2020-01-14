@@ -42,6 +42,7 @@ namespace OccultShop.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsNew")
@@ -54,6 +55,7 @@ namespace OccultShop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("imgPath")
@@ -124,10 +126,6 @@ namespace OccultShop.Migrations
                         .HasMaxLength(60);
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

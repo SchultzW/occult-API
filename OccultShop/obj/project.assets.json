@@ -3946,7 +3946,7 @@
       ]
     },
     "runtime.native.System.IO.Compression/4.3.0": {
-      "sha512": "b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
+      "sha512": "INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
       "type": "package",
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
@@ -4051,7 +4051,7 @@
       ]
     },
     "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "T5NvFgmHX0WH4c7lP72krsnk+IJI10vJf2j2twGE+5QBRA4RyRAgD+ZjEgdmpLOjW4B+nZGaadewTCUcR899OQ==",
+      "sha512": "nyFNiCk/r+VOiIqreLix8yN+q3Wga9+SE8BCgkf+2BwEKiNx6DyvFjCgkfV743/grxv8jHJ8gUK4XEQw7yzRYg==",
       "type": "package",
       "path": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -4373,7 +4373,7 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
+      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
@@ -4634,7 +4634,7 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
@@ -6537,7 +6537,7 @@
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "sha512": "hMkdWxksypQlFXB7JamQegDscxEAQO4FHd/lw/zlSZU9dZgAij65xjCrXer183wvoNAzJic5zzjj2oc9/dloWg==",
       "type": "package",
       "path": "system.runtime.compilerservices.unsafe/4.5.2",
       "files": [
@@ -8201,23 +8201,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CTL Staff 1\\.nuget\\packages\\": {},
+    "C:\\Users\\wills\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj",
+      "projectUniqueName": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj",
       "projectName": "OccultShop",
-      "projectPath": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\OccultShop.csproj",
-      "packagesPath": "C:\\Users\\CTL Staff 1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CTL Staff 1\\Desktop\\projects\\labs-SchultzW\\OccultShop\\obj\\",
+      "projectPath": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\OccultShop.csproj",
+      "packagesPath": "C:\\Users\\wills\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wills\\OneDrive\\Desktop\\School\\Winter 2020\\ASP .NET\\OccultShop\\OccultShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\CTL Staff 1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wills\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

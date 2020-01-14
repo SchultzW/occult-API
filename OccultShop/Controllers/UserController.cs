@@ -190,6 +190,30 @@ namespace Midterm.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Admin(String title,string description,int price, string imgpath,string tag,bool isNew)
+        {
+
+            if(ModelState.GetValidationState(nameof(title))==ModelValidationState.Valid &&
+                ModelState.GetValidationState(nameof(description))== ModelValidationState.Valid &&
+                ModelState.GetValidationState(nameof(price))== ModelValidationState.Valid &&
+                ModelState.GetValidationState(nameof(imgpath)) == ModelValidationState.Valid &&
+                ModelState.GetValidationState(nameof(tag)) == ModelValidationState.Valid &&
+                ModelState.GetValidationState(nameof(isNew)) == ModelValidationState.Valid)
+            {
+                Product p = new Product();
+                p.Title = title.Trim();
+                p.Description = description.Trim();
+                p.Price = price;
+                p.imgPath = imgpath.Trim();
+                p.Tag = tag;
+                p.IsNew = isNew;
+                pRepo.AddProd(p);
+            }
+
+
+            return View("Admin");
+        }
         private List<CartItem> GetCart()
         {
             List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart") ?? new List<CartItem>();
