@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Midterm.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,10 @@ using System.Threading.Tasks;
 
 namespace Midterm.Models
 {
-    public class AppUser
+    public class AppUser:IdentityUser
     {
         private static List<Cart> cart = new List<Cart>();
         public static List<Cart> Cart { get { return cart; } }
-        //public int UserId { get; set; }
-        private AppDbContext context;
-        
-        //[Required(ErrorMessage = "That Username is taken")]
-        //[Remote("CheckUser","User",HttpMethod ="POST") ]
-        //public string UserName { get; set; }
 
         [Required(ErrorMessage = "Please enter a first name")]
         [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$", ErrorMessage = "Please enter a first name")]

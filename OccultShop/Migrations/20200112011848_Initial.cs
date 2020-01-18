@@ -29,7 +29,7 @@ namespace OccultShop.Migrations
                     Description = table.Column<string>(nullable: false),
                     Price = table.Column<int>(nullable: false),
                     Tag = table.Column<string>(nullable: true),
-                    imgPath = table.Column<string>(nullable: true),
+                    ImgPath = table.Column<string>(nullable: true),
                     IsNew = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>

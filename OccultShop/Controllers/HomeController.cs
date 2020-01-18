@@ -121,21 +121,21 @@ namespace Midterm.Controllers
             p1.Price = 1;
             p1.Tag = "Book";
             p1.Description = "Test Prod 1";
-            p1.imgPath = "http://placekitten.com/g/201/300";
+            p1.ImgPath = "http://placekitten.com/g/201/300";
 
             p2.Title = "Prod 2";
             p2.ProductId = 2;
             p2.Price = 2;
             p2.Tag = "Book";
             p2.Description = "Test Prod 2";
-            p2.imgPath = "http://placekitten.com/g/202/300";
+            p2.ImgPath = "http://placekitten.com/g/202/300";
 
             p.Title = "Prod 3";
             p.ProductId = 3;
             p.Price = 3;
             p.Tag = "Book";
             p.Description = "Test Prod 3";
-            p.imgPath = "http://placekitten.com/g/203/300";
+            p.ImgPath = "http://placekitten.com/g/203/300";
 
             pRepo.AddProd(p);
             pRepo.AddProd(p1);

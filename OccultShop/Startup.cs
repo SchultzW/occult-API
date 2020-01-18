@@ -45,8 +45,8 @@ namespace Midterm
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddSessionStateTempDataProvider();
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
-                    .AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()//
+                    .AddDefaultTokenProviders();//
             services.AddTransient<IProdRepos, ProdRepo>();
             services.AddTransient<IReviewRepo, ReviewRepo>();
             services.AddTransient<ICartItemRepo, CartItemRepo>();
@@ -83,8 +83,9 @@ namespace Midterm
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseAuthentication();//
             SeedData.Seed(context);
-            app.UseAuthentication();
+           
         }
     }
 }

@@ -1,0 +1,49 @@
+﻿@model Product;
+@{
+    ViewData["Title"] = "AdminAddProd";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+Add New Product
+
+<form method="post" class="signup-container">
+    <div asp-validation-summary="All" class="required"></div>
+    <div><span asp-validation-for="Title" class="required"></span></div>
+    <div class=" signin-form">
+        Title <input asp-for="Title" type="text" name="title" size="35" />
+    </div>
+
+    <div><span asp-validation-for="Description" class="required"></span></div>
+    <div class=" signin-form">
+        Description <input asp-for="Description" type="text" name="description" size="35" />
+    </div>
+
+    <div><span asp-validation-for="Price" class="required"></span></div>
+    <div class=" signin-form">
+        Price <input asp-for="Price" type="text" name="price" size="35" />
+    </div>
+    <div><span asp-validation-for="ImgPath" class="required"></span></div>
+    <div class=" signin-form">
+        Image Path <input asp-for="ImgPath" type="text" name="ImgPath" size="35" />
+    </div>
+    <div class=" signin-form">
+        Product Tag
+        <select name="tag">
+            <option value="Home">Home</option>
+            <option value="Books">Book</option>
+            <option value="Decor">Decor</option>
+            <option value="Trinkets">Trinkets</option>
+            <option value="Clothing">Clothing</option>
+        </select>
+
+    </div>
+    <div class="signin-form">
+        Tag the product as
+        <select name="isNew">
+            <option value="true">New</option>
+            <option value="false">Not new</option>
+        </select>
+
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

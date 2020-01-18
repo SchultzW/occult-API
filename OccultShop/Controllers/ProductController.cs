@@ -56,66 +56,99 @@ namespace Midterm.Controllers
         [HttpPost]
         public IActionResult Browse(string searchText,string command)
         {
-            var results = (from p in pRepo.Products
-                           where p.Title.Contains(searchText)
-                           select p).ToList();
-            return View("products", results);
+
+            try
+            {
+                var results = (from p in pRepo.Products
+                               where p.Title.Contains(searchText)
+                               select p).ToList();
+                return View("products", results);
+            }
+            catch
+            {
+                return View("Error");
+            }
+
         }
         [HttpGet]
         public ViewResult Products(string tag)
         {
+            try
+            {
 
+                //pRepo.Prods.
+                //FillRepo(tag);
 
-            //pRepo.Prods.
-            //FillRepo(tag);
+                IEnumerable<Product> products = (from product in pRepo.Products
+                                                 where product.Tag == tag
+                                                 select product).ToList();
 
-            IEnumerable<Product> products = (from product in pRepo.Products
-                                             where product.Tag == tag
-                                             select product).ToList();
+                //List < Product > prods = pRepo.Products.ToList();
+                return View(products);
+            }
+            catch 
+            {
+                return View("Error");
+            }
 
-            //List < Product > prods = pRepo.Products.ToList();
-            return View(products);
         }
         [HttpGet]
         public ViewResult ProductDetails(int ID)
         {
-            Product p = pRepo.GetProdByID(ID);
-            
-            
-            return View(p);
+            try
+            {
+                Product p = pRepo.GetProdByID(ID);
+
+
+                return View(p);
+            }
+            catch
+            {
+                return View("Error");
+            }
+
         }
     
         [HttpPost]
         public IActionResult ProductDetails(string Name,string reviewText,string Command,int quantity, int id)
         {
-            if (Command == "AddReview")
+
+            try
             {
-                Review review = new Review();
-                review.Author = Name;
-                review.ReviewText = reviewText;
-                //review.ProductID = id;
-                Product p = pRepo.GetProdByID(id);
+                if (Command == "AddReview")
+                {
+                    Review review = new Review();
+                    review.Author = Name;
+                    review.ReviewText = reviewText;
+                    //review.ProductID = id;
+                    Product p = pRepo.GetProdByID(id);
 
-                pRepo.AddReview(p, review);
-                
-                
-                return View("Browse");
+                    pRepo.AddReview(p, review);
+
+
+                    return View("Browse");
+                }
+                else if (Command == "AddCart")
+                {
+                    Product p;
+                    CartItem item = new CartItem();
+                    p = pRepo.GetProdByID(id);
+                    item.CartProd = p;
+                    item.Quantity = quantity;
+                    cRepo.AddToCart(item);
+                    cart.Add(item);
+                    return View("PurchaseConfirm", p);
+                }
+                else
+                    return null;
+
+
             }
-            else if (Command == "AddCart")
+            catch
             {
-                Product p;
-                CartItem item = new CartItem();
-                p = pRepo.GetProdByID(id);
-                item.CartProd = p;
-                item.Quantity = quantity;
-                cRepo.AddToCart(item);
-                cart.Add(item);
-                return View("PurchaseConfirm", p);
+                return View("Error");
             }
-            else
-                return null;
-
-
+          
 
         }
        

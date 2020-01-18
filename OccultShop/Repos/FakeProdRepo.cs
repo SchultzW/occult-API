@@ -45,6 +45,11 @@ namespace Midterm.Repos
         {
             throw new NotImplementedException();
         }
+
+        public bool UpdateProd(string id, Product newP)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

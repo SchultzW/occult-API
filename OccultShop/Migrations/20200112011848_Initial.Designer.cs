@@ -60,7 +60,7 @@ namespace OccultShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("imgPath")
+                    b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
