@@ -45,8 +45,16 @@ namespace Midterm
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddSessionStateTempDataProvider();
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()//
-                    .AddDefaultTokenProviders();//
+            services.AddIdentity<AppUser, IdentityRole>(opts => {
+                opts.User.RequireUniqueEmail = true;
+                //opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppDbContext>()
+          .AddDefaultTokenProviders();
             services.AddTransient<IProdRepos, ProdRepo>();
             services.AddTransient<IReviewRepo, ReviewRepo>();
             services.AddTransient<ICartItemRepo, CartItemRepo>();

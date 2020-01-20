@@ -10,8 +10,8 @@ using Midterm.Infrastructure;
 namespace OccultShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200114210445_identity")]
-    partial class identity
+    [Migration("20200120000201_id")]
+    partial class id
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -243,6 +243,9 @@ namespace OccultShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
 
@@ -254,9 +257,6 @@ namespace OccultShop.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");

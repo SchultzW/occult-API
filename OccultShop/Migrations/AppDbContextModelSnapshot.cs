@@ -241,6 +241,9 @@ namespace OccultShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
 
@@ -252,9 +255,6 @@ namespace OccultShop.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
