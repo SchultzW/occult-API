@@ -47,7 +47,7 @@ namespace OccultShop.Controllers
         [HttpGet]
         public ViewResult AdminUser()
         {
-            return View();
+            return View(userManager.Users);
         }
         [HttpGet]
         public ViewResult CreateUser()
@@ -59,11 +59,7 @@ namespace OccultShop.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ViewResult EditPro()
-        {
-            return View();
-        }
+      
         [HttpPost]
         public ViewResult AdminProd(string id)
         {
@@ -84,13 +80,13 @@ namespace OccultShop.Controllers
             return View(p);
         }
         [HttpPost]
-        public async Task<IActionResult> CreatUser(AppUser model)
+        public async Task<IActionResult> CreateUser(AppUser model)
         {
             if(ModelState.IsValid)
             {
                 AppUser user = new AppUser
                 {
-                    //UserName=model.
+                    UserName=model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -137,6 +133,81 @@ namespace OccultShop.Controllers
             }
             return View("AdminUser", userManager.Users);
         }
+
+        
+        public async Task<IActionResult> EditUser(string id)
+        {
+            AppUser user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("AdminUser");
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUser(string id, string email,string password,string firstName, string lastName, string address,
+                                                string city, string zip, string state)
+        {
+            AppUser user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.Email = email;
+                user.FirstName = firstName;
+                user.LastName = lastName;
+                user.Address = address;
+                user.City = city;
+                user.Zip = zip;
+                user.State = state;
+
+                IdentityResult validEmail
+                    = await userValidator.ValidateAsync(userManager, user);
+                if (!validEmail.Succeeded)
+                {
+                    AddErrorsFromResult(validEmail);
+                }
+                IdentityResult validPass = null;
+                if (!string.IsNullOrEmpty(password))
+                {
+                    validPass = await passwordValidator.ValidateAsync(userManager,
+                        user, password);
+                    if (validPass.Succeeded)
+                    {
+                        user.PasswordHash = passwordHasher.HashPassword(user,
+                            password);
+                    }
+                    else
+                    {
+                        AddErrorsFromResult(validPass);
+                    }
+                }
+                if ((validEmail.Succeeded && validPass == null)
+                        || (validEmail.Succeeded
+                        && password != string.Empty && validPass.Succeeded))
+                {
+                    IdentityResult result = await userManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("AdminUser");
+                    }
+                    else
+                    {
+                        AddErrorsFromResult(result);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "User Not Found");
+            }
+            return View(user);
+        }
+
+        /// <summary>
+        /// For Prods
+        /// </summary>
         [HttpPost]
         public IActionResult AddProd(string title, string description, string price, string ImgPath, string tag, bool isNew)
         {

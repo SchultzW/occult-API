@@ -17,7 +17,7 @@ namespace Midterm.Infrastructure
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
-        //public DbSet<AppUser> Users { get; set;} maybe we dont need?
+        public DbSet<AppUser> Users { get; set;} //maybe we dont need?
         public DbSet<Review> Reviews { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
 

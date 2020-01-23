@@ -15,10 +15,7 @@
 
     <form method="post" class="signup-container">
         <div asp-validation-summary="All" class="required"></div>
-        <div><span asp-validation-for="UserName"></span></div>
-        <div class="signin-form">
-            Username <input asp-for="UserName" type="text" name="username" size="35" asp-validation-for="username"/>
-        </div>
+        
         <div><span asp-validation-for="FirstName" class="required"></span></div>
         <div class=" signin-form">
             First Name <input asp-for="FirstName" type="text" name="FirstName" size="35" />
