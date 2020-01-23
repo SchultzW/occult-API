@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Midterm.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,10 @@ using System.Threading.Tasks;
 
 namespace Midterm.Models
 {
-    public class User
+    public class AppUser:IdentityUser
     {
         private static List<Cart> cart = new List<Cart>();
         public static List<Cart> Cart { get { return cart; } }
-        public int UserId { get; set; }
-        private AppDbContext context;
-        
-        //[Required(ErrorMessage = "That Username is taken")]
-        //[Remote("CheckUser","User",HttpMethod ="POST") ]
-        //public string UserName { get; set; }
 
         [Required(ErrorMessage = "Please enter a first name")]
         [RegularExpression(@"^(?<firstchar>(?=[A-Za-z]))((?<alphachars>[A-Za-z])|(?<specialchars>[A-Za-z]['-](?=[A-Za-z]))|(?<spaces> (?=[A-Za-z])))*$", ErrorMessage = "Please enter a first name")]
@@ -32,9 +27,9 @@ namespace Midterm.Models
         [StringLength(60, MinimumLength = 8)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Please enter an email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        //[Required(ErrorMessage = "Please enter an email")]
+        //[EmailAddress]
+        //public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter an address")]
         [StringLength(60, MinimumLength = 3)]
@@ -42,6 +37,7 @@ namespace Midterm.Models
 
         [Required(ErrorMessage ="Please enter a valid zip code")]
         [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "Please enter a valid zip code")]
+        [DataType(DataType.PostalCode)]
         public string Zip { get; set; }
 
         [Required]

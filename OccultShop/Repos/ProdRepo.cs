@@ -61,6 +61,27 @@ namespace Midterm.Models
             throw new NotImplementedException();
         }
 
+        public bool UpdateProd(string id, Product newP)
+        {
+            var prod = context.Products.Find(id);
+
+            try
+            {
+
+                prod.Description = newP.Description;
+                prod.ImgPath = newP.ImgPath;
+                prod.IsNew = newP.IsNew;
+                prod.Price = newP.Price;
+                prod.Tag = newP.Tag;
+                prod.Title = newP.Title;
+                context.SaveChanges();
+
+                return true;
+            }
+            catch
+                { return false; }
+        }
+
 
         //public void Clear()
         //{

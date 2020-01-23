@@ -8,7 +8,7 @@ namespace OccultShop.Repos
 {
     public class FakeUserRepo : IUserRepo
     {
-        public void AddUser(User u)
+        public void AddUser(AppUser u)
         {
             throw new NotImplementedException();
         }

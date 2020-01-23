@@ -16,6 +16,7 @@ using Midterm.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using OccultShop.Infrastructure;
 using OccultShop.Repos;
+using Microsoft.AspNetCore.Identity;
 
 namespace Midterm
 {
@@ -43,7 +44,17 @@ namespace Midterm
             services.AddDistributedMemoryCache();
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddSessionStateTempDataProvider();
+                    .AddSessionStateTempDataProvider();
+            services.AddIdentity<AppUser, IdentityRole>(opts => {
+                opts.User.RequireUniqueEmail = true;
+                //opts.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppDbContext>()
+          .AddDefaultTokenProviders();
             services.AddTransient<IProdRepos, ProdRepo>();
             services.AddTransient<IReviewRepo, ReviewRepo>();
             services.AddTransient<ICartItemRepo, CartItemRepo>();
@@ -80,7 +91,9 @@ namespace Midterm
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseAuthentication();//
             SeedData.Seed(context);
+           
         }
     }
 }

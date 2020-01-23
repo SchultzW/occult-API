@@ -11,7 +11,7 @@ namespace OccultShop.Repos
     {
         private AppDbContext context;
 
-        public void AddUser(User u)
+        public void AddUser(AppUser u)
         {
             context.Add(u);
             context.SaveChanges();

@@ -11,7 +11,7 @@ namespace OccultShop.Repos
     {
          
 
-        void AddUser(User u);
+        void AddUser(AppUser u);
      
     }
 }

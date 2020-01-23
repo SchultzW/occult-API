@@ -1,0 +1,38 @@
+﻿@model Product;
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+<h1>Admin Page</h1>
+
+<div class="grid">
+
+    <article class="card product-item">
+        <a asp-controller="Admin" asp-action="AdminProd">
+            <header class="card__header">
+                <h1 class="product__title center freakshowText">
+                    Products
+                </h1>
+            </header>
+            <div class="card__image center">
+                <img src="~/img/AdminProd.jpg" class="" />
+            </div>
+
+        </a>
+    </article>
+
+    <article class="card product-item">
+        <a asp-controller="Admin" asp-action="AdminUser">
+            <header class="card__header">
+                <h1 class="product__title center freakshowText">
+                    Users
+                </h1>
+            </header>
+            <div class="card__image center">
+                <img src="~/img/AdminUser.png" class="" />
+            </div>
+        </a>
+    </article>
+
+ </div>

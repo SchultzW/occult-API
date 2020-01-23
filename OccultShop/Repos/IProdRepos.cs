@@ -23,6 +23,7 @@ namespace Midterm.Repos
 
         void AddReview(Product p, Review r);
 
+        bool UpdateProd(string id, Product newP);
 
         void Clear();
 
