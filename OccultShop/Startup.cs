@@ -62,7 +62,10 @@ namespace Midterm
             services.AddTransient<IUserRepo, UserRepo>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration["ConnectionStrings:LocalDbConnection"]));
-            
+            services.ConfigureApplicationCookie(opts =>
+                        opts.LoginPath = "/Admin/Login");
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +86,9 @@ namespace Midterm
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             context.Database.Migrate();
             app.UseMvc(routes =>
             {
@@ -91,9 +96,9 @@ namespace Midterm
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            app.UseAuthentication();//
-            SeedData.Seed(context);
            
+            SeedData.Seed(context);
+            //AppDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
         }
     }
 }

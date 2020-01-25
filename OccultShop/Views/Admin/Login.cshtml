@@ -1,0 +1,35 @@
+﻿@model LogInViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+<body class="center freakshowText">
+    <h1>Welcome</h1>
+
+    <div class="error" asp-validation-summary="All"></div>
+    <form method="post" asp-action="Login">
+        <div class="signin-form">
+            Username <input for="email" type="text" name="email" size="35"/>
+        </div>
+        <div class="signin-form">
+            Password <input for="password" type="" name="password" size="35" />
+        </div>
+        <button type="submit" class="btn">Log In</button>
+    </form>
+
+    Need an Account?
+    <a asp-controller="User" asp-action="UserSignUpInfo"><br />Sign Up!</a>
+
+    <div class="small-eye">
+            <img src="~/img/eye3.png" />
+    </div>
+
+    <a asp-action="Admin" asp-controller="Admin">
+        <button>Admin Page</button>
+    </a>
+        
+        
+</body>
+
+

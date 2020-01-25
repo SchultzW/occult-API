@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Midterm.Models;
@@ -10,6 +11,7 @@ using OccultShop.Models;
 
 namespace OccultShop.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private UserManager<AppUser> userManager;
@@ -17,12 +19,16 @@ namespace OccultShop.Controllers
         private IPasswordValidator<AppUser> passwordValidator;
         private IPasswordHasher<AppUser> passwordHasher;
         IProdRepos pRepo;
+        private SignInManager<AppUser> signInManager;
+
+
 
         public AdminController(UserManager<AppUser> usrMgr,
                 IUserValidator<AppUser> userValid,
                 IPasswordValidator<AppUser> passValid,
-                IPasswordHasher<AppUser> passwordHash,IProdRepos p)
+                IPasswordHasher<AppUser> passwordHash,IProdRepos p, SignInManager<AppUser>signInMgr)
         {
+            signInManager = signInMgr;
             pRepo = p;
             userManager = usrMgr;
             userValidator = userValid;
@@ -154,7 +160,7 @@ namespace OccultShop.Controllers
             AppUser user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
-                user.Email = email;
+                //user.Email = email;
                 user.FirstName = firstName;
                 user.LastName = lastName;
                 user.Address = address;
@@ -252,7 +258,50 @@ namespace OccultShop.Controllers
             return View("AdminProd");
         }
 
+        [AllowAnonymous]
+        public IActionResult Login(string returnUrl)
+        {
 
+            ViewBag.returnUrl = returnUrl; return View();
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Login(LogInViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                AppUser user = await userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+
+                    await signInManager.SignOutAsync();
+
+                    var result = await signInManager.PasswordSignInAsync(user,
+
+                                                         model.Password, false, false);
+
+                    if (result.Succeeded)
+                    {
+
+                        return Redirect(returnUrl ?? "/");
+
+                    }
+
+                }
+
+                ModelState.AddModelError(nameof(LogInViewModel.Email),
+
+                                                  "Invalid user or password");
+
+            }
+
+            return View(model);
+
+        }
 
 
 
