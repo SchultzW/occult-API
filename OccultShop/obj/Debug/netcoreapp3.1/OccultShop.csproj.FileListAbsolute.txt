@@ -380,7 +380,7 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\AdminRole\AdminRole.cshtml.g.cs
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\AdminRole\CreateRole.cshtml.g.cs
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\AdminRole\DeleteRole.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Login.cshtml.g.cs
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\AdminRole.cshtml.g.cs
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\CreateRole.cshtml.g.cs
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\EditRole.cshtml.g.cs

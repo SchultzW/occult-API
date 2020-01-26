@@ -34,7 +34,7 @@ using OccultShop.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0f7ce00fc0a5afaf87bca9e1dbf998fb9b9ffec9", @"/Views/User/HoroscopeResult.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"39c067a3123cd7a94e01f18caa1bcc0aa371913d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d19a0cdfc792a366688ce655549d5205c7792430", @"/Views/_ViewImports.cshtml")]
     public class Views_User_HoroscopeResult : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MyHoroscope>
     {
         #pragma warning disable 1998

@@ -16,7 +16,53 @@
 
 </head>
 <body>
-    <div class="navbar">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="navbar">
+            <a asp-controller="Home" asp-action="index">Home</a>
+
+            <a asp-controller="Product" asp-action="Browse">Browse</a>
+
+            <a asp-controller="User" asp-action="Cart">Your Cart</a>
+
+            <a asp-controller="User" asp-action="Profile">Profile</a>
+
+            <a asp-controller="User" asp-action="Horoscope">Horoscopes</a>
+
+
+            <div class="nav-right">
+                <a asp-controller="Home" asp-action="aboutus">About Us</a>
+
+                <a asp-controller="User" asp-action="signin">Sign In</a>
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="navbar">
+            <a asp-controller="Home" asp-action="index">Home</a>
+
+            <a asp-controller="Product" asp-action="Browse">Browse</a>
+
+            <a asp-controller="User" asp-action="Cart">Your Cart</a>
+
+            <a asp-controller="User" asp-action="Profile">Profile</a>
+
+            <a asp-controller="User" asp-action="Horoscope">Horoscopes</a>
+
+
+            <div class="nav-right">
+                <a asp-controller="Home" asp-action="aboutus">About Us</a>
+
+                <a asp-controller="Admin" asp-action="Logout">Logout</a>
+            </div>
+
+        </div>
+    }
+
+   
+    @*<div class="navbar">
         <a asp-controller="Home" asp-action="index">Home</a>
 
         <a asp-controller="Product" asp-action="Browse">Browse</a>
@@ -27,22 +73,21 @@
 
         <a asp-controller="User" asp-action="Horoscope">Horoscopes</a>
 
-        
+
         <div class="nav-right">
             <a asp-controller="Home" asp-action="aboutus">About Us</a>
 
             <a asp-controller="User" asp-action="signin">Sign In</a>
         </div>
-        
-       
-        
 
-    </div>
-    <div>
-        @RenderBody()
-    </div>
+    </div>*@
+        <div>
+            logged in as: @User.Identity.Name
+            @RenderBody()
+
+        </div>
     <footer class="footer">
-    Madame Angelique’s Occult and Esoteric Emporium 
+        Madame Angelique’s Occult and Esoteric Emporium
     </footer>
 </body>
 </html>

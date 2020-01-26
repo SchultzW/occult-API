@@ -98,7 +98,7 @@ namespace Midterm
             });
            
             SeedData.Seed(context);
-            //AppDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+            AppDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
         }
     }
 }

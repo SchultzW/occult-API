@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace OccultShop.Models
 {
-    public class RoleViewModel
+    public class RoleEditModel
     {
-        public class RoleEditModel
+        public class RoleEditViewModel
         {
             public IdentityRole Role { get; set; }
             public IEnumerable<AppUser> Members { get; set; }

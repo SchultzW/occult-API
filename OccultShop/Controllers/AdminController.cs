@@ -277,30 +277,17 @@ namespace OccultShop.Controllers
                 AppUser user = await userManager.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
-
                     await signInManager.SignOutAsync();
-
-                    var result = await signInManager.PasswordSignInAsync(user,
-
-                                                         model.Password, false, false);
-
+                    var result = await signInManager.PasswordSignInAsync(user,model.Password, false, false);
                     if (result.Succeeded)
                     {
-
                         return Redirect(returnUrl ?? "/");
-
                     }
-
                 }
-
-                ModelState.AddModelError(nameof(LogInViewModel.Email),
-
-                                                  "Invalid user or password");
+                ModelState.AddModelError(nameof(LogInViewModel.Email),"Invalid user or password");
 
             }
-
             return View(model);
-
         }
 
 
@@ -314,6 +301,15 @@ namespace OccultShop.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public async Task<RedirectToActionResult> Logout()
+        {
+
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+
+        }
 
 
 

@@ -78,7 +78,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error","home");
 
             }
 
@@ -112,7 +112,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error","home");
 
             }
         }
@@ -147,7 +147,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error", "home");
 
             }
 
@@ -207,7 +207,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error", "home");
 
             }
 
@@ -223,7 +223,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error", "home");
 
             }
            
@@ -262,7 +262,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error", "home");
             }
            
         }
@@ -332,7 +332,7 @@ namespace Midterm.Controllers
             }
             catch
             {
-                return View("Error");
+                return View("Error", "home");
             }
 
 
