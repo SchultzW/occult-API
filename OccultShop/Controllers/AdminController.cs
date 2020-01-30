@@ -289,7 +289,7 @@ namespace OccultShop.Controllers
                         Title = title.Trim(),
                         Description = description.Trim(),
                         Price = int.Parse(price),
-                        ImgPath = ImgPath.Trim(),
+                        ImgPath = imgPath.Trim(),
                         Tag = tag,
                         IsNew = isNew
                     };
@@ -303,8 +303,12 @@ namespace OccultShop.Controllers
                     return View("AdminProd");
                 }
             }
+            catch
+            {
+                return View("Error");
+            }
+            return View("Error");
 
-           
         }
 
         [AllowAnonymous]

@@ -27,6 +27,7 @@ namespace Midterm
             Configuration = configuration;
 
         }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
 
@@ -39,6 +40,16 @@ namespace Midterm
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("https://localhost:44372/");
+                });
+            });
+
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddMemoryCache();
             services.AddDistributedMemoryCache();
@@ -85,8 +96,11 @@ namespace Midterm
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                context.Response.Headers.Add("X-XSS-Protection", 1);
                 await next();
             });
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
