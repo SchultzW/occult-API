@@ -21,7 +21,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 16;
                 product.Description = "Spruce up anyroom in your house with this jar filled with whispers of the unknown. Who knows what they will whisper(Legal Disclaimer: We are not responsible for Jar of Whispers telling you to sacrafice family members";
                 product.Tag = "Home";
-                product.ImgPath = "/img/Jar.jpg";
+                product.ImgPath = "~/img/Jar.jpg";
                 product.IsNew = false;
                 context.Products.Add(product);
 
@@ -33,7 +33,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 40;
                 product.Description = "No one know what is held within the pages of this tome.All our interns that opened it were inflected with mind-boggline instantiy(Legal Disclaimer: We are not respobsible for any alteration to the sanity of purchaser.";
                 product.Tag = "Books";
-                product.ImgPath = "/img/JergenBook.jpg";
+                product.ImgPath = "~/img/JergenBook.jpg";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -43,7 +43,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 5;
                 product.Description = "A wooden spoon that is great for use in the kitchen";
                 product.Tag = "Home";
-                product.ImgPath = "/img/woodenspoon.jpg";
+                product.ImgPath = "~/img/woodenspoon.jpg";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -53,7 +53,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 88;
                 product.Description = "The Necronomicon has been a staple in any mystic's library. It contains accounts of the Old Ones.(Legal Disclaimer: We are not responsible for any personal physical or mental injury from attempting to perform a summoning ritural contained in this book.)";
                 product.Tag = "Books";
-                product.ImgPath = "/img/necronomicon.jpg";
+                product.ImgPath = "~/img/necronomicon.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -63,7 +63,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 8;
                 product.Description = "A small gnome can really spruce up anyones garden";
                 product.Tag = "Home";
-                product.ImgPath = "/img/gnome.jpg";
+                product.ImgPath = "~/img/gnome.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -73,7 +73,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 22;
                 product.Description = "A real spirit board to communicate with the great beyond. This is a great gift for teenagers that enjoy venturing into abandoned buildings or a birthday present for your favorite medium. (Legal Disclaimer: We are not responsible for any posessions that may come from using this product.";
                 product.Tag = "Home";
-                product.ImgPath = "/img/SpiritBoard.jpg";
+                product.ImgPath = "~/img/SpiritBoard.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -83,7 +83,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 10;
                 product.Description = "We don't know what this thing is but it creeps everyone out and we want it gone. (Legal Discalaimer: We have no idea what this is or does and hold no responsibility for whatever happens with it)";
                 product.Tag = "Decor";
-                product.ImgPath = "/img/creepy.jpg";
+                product.ImgPath = "~/img/creepy.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -99,7 +99,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 50;
                 product.Description = " This small Black Obelisk is perfect for an at home summinings or incantations at home or on the go. It also looks great on a coffee table";
                 product.Tag = "Decor";
-                product.ImgPath = "/img/obelisk.jpg";
+                product.ImgPath = "~/img/obelisk.jpg";
                 product.IsNew = true;
                 product.Reviews.Add(r);
                 context.SaveChanges();
@@ -109,7 +109,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 20;
                 product.Description = "Are you tried of usin your spirit board in the dark? Fear not gentle customer, this classy table lamp is for you. It brings just enough light to see what your doing but not too much that it ruins the atmosphere.";
                 product.Tag = "Decor";
-                product.ImgPath = "/img/tablelamp.jpg";
+                product.ImgPath = "~/img/tablelamp.jpg";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -119,7 +119,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 55;
                 product.Description = "Of unknown origin, this is a must have for any priest of the Crawling Chaos.";
                 product.Tag = "Trinkets";
-                product.ImgPath = "/img/amulet";
+                product.ImgPath = "~/img/amulet";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -129,7 +129,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 155;
                 product.Description = "This hand crafted dagger is perfect for offering the innocent to summon an Old One or an Outer God.";
                 product.Tag = "Trinkets";
-                product.ImgPath = "/img/dagger";
+                product.ImgPath = "~/img/dagger";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -139,7 +139,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 200;
                 product.Description = "Tired of local law enforcement or a group of kids with their dog stumbling upon your hidden arcane lab. This bookcase can be easily installed to stop anyone from finding your most guarded secrets.";
                 product.Tag = "Home";
-                product.ImgPath = "/img/bookcase";
+                product.ImgPath = "~/img/Bookcase";
                 product.IsNew = true;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -149,7 +149,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 75;
                 product.Description = "Hand crafted mask dedicated to the Great Old One Himself. It is freat for any aspiring cultist.";
                 product.Tag = "Clothing";
-                product.ImgPath = "/img/mask";
+                product.ImgPath = "~/img/mask";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();
@@ -159,7 +159,7 @@ namespace OccultShop.Infrastructure
                 product.Price = 15;
                 product.Description = "Robes are the most essential item any cultist needs. Our robes are light-weight, yet durable. They are made from 100% organic cotten";
                 product.Tag = "Clothing";
-                product.ImgPath = "/img/robe";
+                product.ImgPath = "~/img/robe";
                 product.IsNew = false;
                 context.Products.Add(product);
                 context.SaveChanges();

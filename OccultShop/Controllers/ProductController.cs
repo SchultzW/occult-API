@@ -9,11 +9,13 @@ using static Midterm.Models.Cart;
 using Midterm.Repos;
 using OccultShop.Repos;
 using OccultShop.Models;
+using System.Text.RegularExpressions;
 
 namespace Midterm.Controllers
 {
     public class ProductController : Controller
     {
+        Regex letterNumRegEx = new Regex(@"^[a-zA-Z0-9]+$");
         //ICartItemRepo CIRepo;
         IProdRepos pRepo;
         ICartRepo cRepo;
@@ -56,18 +58,27 @@ namespace Midterm.Controllers
         [HttpPost]
         public IActionResult Browse(string searchText,string command)
         {
+           
+            
+                try
+                {
+                    if (letterNumRegEx.IsMatch(searchText))
+                    {
+                    var results = (from p in pRepo.Products
+                                   where p.Title.Contains(searchText)
+                                   select p).ToList();
+                    return View("products", results);
+                }
+                   
+                }
+                catch
+                {
+                    return View("error");
+                }
+              
+                return View("error");
 
-            try
-            {
-                var results = (from p in pRepo.Products
-                               where p.Title.Contains(searchText)
-                               select p).ToList();
-                return View("products", results);
-            }
-            catch
-            {
-                return View("Error");
-            }
+
 
         }
         [HttpGet]
@@ -140,7 +151,7 @@ namespace Midterm.Controllers
                     return View("PurchaseConfirm", p);
                 }
                 else
-                    return null;
+                    return View("Error");
 
 
             }

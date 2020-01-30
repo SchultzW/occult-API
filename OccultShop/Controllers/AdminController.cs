@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -14,6 +15,9 @@ namespace OccultShop.Controllers
     [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
+        Regex imgUrlRegex = new Regex(@"^[;]");
+        Regex emailRegEx = new Regex(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");
+        Regex letterNumRegEx = new Regex(@"^[a-zA-Z0-9]+$");
         private UserManager<AppUser> userManager;
         private IUserValidator<AppUser> userValidator;
         private IPasswordValidator<AppUser> passwordValidator;
@@ -72,14 +76,18 @@ namespace OccultShop.Controllers
             Product p = new Product();
             try
             {
-                IEnumerable<Product> products = (from product in pRepo.Products
-                                                 where product.ProductId == int.Parse(id)
-                                                 select product).ToList();
-                p = products.First();
+                if(letterNumRegEx.IsMatch(id))
+                {
+                    IEnumerable<Product> products = (from product in pRepo.Products
+                                                     where product.ProductId == int.Parse(id)
+                                                     select product).ToList();
+                    p = products.First();
+                }
+               
             }
             catch
             {
-                return View();
+                return View("Error");
             }
             
 
@@ -88,32 +96,47 @@ namespace OccultShop.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser(AppUser model)
         {
+
             if(ModelState.IsValid)
             {
-                AppUser user = new AppUser
+                if(emailRegEx.IsMatch(model.Email) &&
+                   letterNumRegEx.IsMatch(model.FirstName)&&
+                    letterNumRegEx.IsMatch(model.LastName)&&
+                     letterNumRegEx.IsMatch(model.Address)&&
+                      letterNumRegEx.IsMatch(model.Zip)&&
+                        letterNumRegEx.IsMatch(model.State)&&
+                         letterNumRegEx.IsMatch(model.City))
                 {
-                    UserName=model.Email,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Address = model.Address,
-                    Zip = model.Zip,
-                    State = model.State,
-                    City = model.City
-
-                };
-                IdentityResult result = await userManager.CreateAsync(user, model.Password);
-                if(result.Succeeded)
-                {
-                    return RedirectToAction("AdminUser");
-                }
-                else
-                {
-                    foreach(IdentityError e in result.Errors)
+                    AppUser user = new AppUser
                     {
-                        ModelState.AddModelError(" ", e.Description);
+                        UserName = model.Email,
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Address = model.Address,
+                        Zip = model.Zip,
+                        State = model.State,
+                        City = model.City
+
+                    };
+                    IdentityResult result = await userManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("AdminUser");
                     }
+                    else
+                    {
+                        foreach (IdentityError e in result.Errors)
+                        {
+                            ModelState.AddModelError(" ", e.Description);
+                        }
+                    }
+
+
+
+
                 }
+               
             }
             return View(model);
         }
@@ -215,20 +238,36 @@ namespace OccultShop.Controllers
         /// For Prods
         /// </summary>
         [HttpPost]
-        public IActionResult AddProd(string title, string description, string price, string ImgPath, string tag, bool isNew)
+        public IActionResult AddProd(string title, string description, string price, string imgPath, string tag, bool isNew)
         {
-            Product p = new Product
+            try
             {
-                Title = title.Trim(),
-                Description = description.Trim(),
-                Price = int.Parse(price),
-                ImgPath = ImgPath.Trim(),
-                Tag = tag,
-                IsNew = isNew
+                if (letterNumRegEx.IsMatch(title) &&
+                    letterNumRegEx.IsMatch(description) &&
+                    letterNumRegEx.IsMatch(tag) &&
+                    !imgUrlRegex.IsMatch(imgPath))
+                {
+                    Product p = new Product
+                    {
+                        Title = title.Trim(),
+                        Description = description.Trim(),
+                        Price = int.Parse(price),
+                        ImgPath = imgPath.Trim(),
+                        Tag = tag,
+                        IsNew = isNew
 
-            };
-            pRepo.AddProd(p);
-            return View("AdminProd");
+                    };
+                    pRepo.AddProd(p);
+                    return View("AdminProd");
+                }
+                else
+                    return View("Error");
+            }
+            catch
+            {
+                return View("Error");
+            }
+        
         }
         [HttpGet]
         public IActionResult EditProd()
@@ -236,26 +275,36 @@ namespace OccultShop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult EditProd(string title, string description, string price, string ImgPath, string tag, bool isNew, string productId)
+        public IActionResult EditProd(string title, string description, string price, string imgPath, string tag, bool isNew, string productId)
         {
-
-            Product p = new Product 
+            try
             {
-                Title = title.Trim(),
-                Description = description.Trim(),
-                Price = int.Parse(price),
-                ImgPath = ImgPath.Trim(),
-                Tag = tag,
-                IsNew = isNew
-            };
+                if (letterNumRegEx.IsMatch(title) &&
+                    letterNumRegEx.IsMatch(description) &&
+                    letterNumRegEx.IsMatch(tag) &&
+                    !imgUrlRegex.IsMatch(imgPath))
+                {
+                    Product p = new Product
+                    {
+                        Title = title.Trim(),
+                        Description = description.Trim(),
+                        Price = int.Parse(price),
+                        ImgPath = ImgPath.Trim(),
+                        Tag = tag,
+                        IsNew = isNew
+                    };
 
-            if(pRepo.UpdateProd(productId, p)==true)
-            {
-                Console.WriteLine("Product Updated");
+                    if (pRepo.UpdateProd(productId, p) == true)
+                    {
+                        Console.WriteLine("Product Updated");
+                    }
+
+
+                    return View("AdminProd");
+                }
             }
 
-
-            return View("AdminProd");
+           
         }
 
         [AllowAnonymous]
