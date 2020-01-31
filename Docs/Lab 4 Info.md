@@ -1,20 +1,20 @@
 Lab 4 Info
 
--X-Frame-Options-Header not set
+X-Frame-Options-Header not set
 
-​	added code to start up to fix
-
-
-
-Path Transveral
-
-​	tried to add validation to fix but issue came back. may be false positive
+​	added code to set the headers to sameorigin
 
 
 
-cross-domain-misconfigureation
+Path Transversal
 
-​	added code to start up: https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.1
+​	I tried to mask the path for images and add regex for further validation but the issue persisted, assuming it is a false positive
+
+
+
+cross-domain-misconfiguration
+
+​	added code to start up to set header
 
 
 

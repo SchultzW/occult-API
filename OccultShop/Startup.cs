@@ -96,7 +96,7 @@ namespace Midterm
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-                context.Response.Headers.Add("X-XSS-Protection", 1);
+                context.Response.Headers.Add("X-XSS-Protection", "1");
                 await next();
             });
             app.UseCors(MyAllowSpecificOrigins);
