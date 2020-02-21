@@ -357,7 +357,6 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.csproj.CopyComplete
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.pdb
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\web.config
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Admin.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AdminProd.cshtml.g.cs
@@ -366,7 +365,6 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProd.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProd.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CreateUser.cshtml.g.cs
-C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
@@ -383,3 +381,7 @@ C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultSho
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\AdminRole.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\CreateRole.cshtml.g.cs
 C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\Razor\Views\RoleAdmin\EditRole.cshtml.g.cs
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\wills\OneDrive\Desktop\School\Winter 2020\ASP .NET\OccultShop\OccultShop\obj\Debug\netcoreapp3.1\OccultShop.MvcApplicationPartsAssemblyInfo.cache

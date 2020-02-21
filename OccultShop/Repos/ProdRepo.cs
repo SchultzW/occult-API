@@ -61,7 +61,7 @@ namespace Midterm.Models
             throw new NotImplementedException();
         }
 
-        public bool UpdateProd(string id, Product newP)
+        public bool UpdateProd(int id, Product newP)
         {
             var prod = context.Products.Find(id);
 
@@ -80,6 +80,14 @@ namespace Midterm.Models
             }
             catch
                 { return false; }
+        }
+
+        public int Delete(int id)
+        {
+            var prod = context.Products.First(p => p.ProductId == id);
+            context.Products.Remove(prod);
+          
+            return context.SaveChanges();
         }
 
 

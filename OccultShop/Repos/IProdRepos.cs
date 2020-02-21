@@ -23,9 +23,11 @@ namespace Midterm.Repos
 
         void AddReview(Product p, Review r);
 
-        bool UpdateProd(string id, Product newP);
+        bool UpdateProd(int id, Product newP);
 
         void Clear();
+
+        int Delete(int id);
 
     }
 }

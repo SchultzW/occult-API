@@ -13,9 +13,14 @@ using System.Text.RegularExpressions;
 
 namespace Midterm.Controllers
 {
-    public class ProductController : Controller
+    [ApiController]
+    [Route("Api/[controller]")]
+    public class ProductController : ControllerBase
     {
+        Regex imgUrlRegex = new Regex(@"^[;]");
+        Regex emailRegEx = new Regex(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");
         Regex letterNumRegEx = new Regex(@"^[a-zA-Z0-9]+$");
+
         //ICartItemRepo CIRepo;
         IProdRepos pRepo;
         ICartRepo cRepo;
@@ -31,7 +36,7 @@ namespace Midterm.Controllers
         //    pRepo = r;
         //    CIRepo = CI;
         //}
-        public ProductController(IProdRepos p,ICartRepo c)
+        public ProductController(IProdRepos p, ICartRepo c)
         {
             pRepo = p;
             cRepo = c;
@@ -45,44 +50,44 @@ namespace Midterm.Controllers
         List<Product> allProds = new List<Product>();
         List<Product> products = new List<Product>();
         List<CartItem> cart = new List<CartItem>();
-       
-        public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpGet]
-        public ViewResult Browse()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Browse(string searchText,string command)
-        {
-           
-            
-                try
-                {
-                    if (letterNumRegEx.IsMatch(searchText))
-                    {
-                    var results = (from p in pRepo.Products
-                                   where p.Title.Contains(searchText)
-                                   select p).ToList();
-                    return View("products", results);
-                }
-                   
-                }
-                catch
-                {
-                    return View("error");
-                }
-              
-                return View("error");
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+        //[HttpGet]
+        //public ViewResult Browse()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult Browse(string searchText, string command)
+        //{
+
+
+        //    try
+        //    {
+        //        if (letterNumRegEx.IsMatch(searchText))
+        //        {
+        //            var results = (from p in pRepo.Products
+        //                           where p.Title.Contains(searchText)
+        //                           select p).ToList();
+        //            return View("products", results);
+        //        }
+
+        //    }
+        //    catch
+        //    {
+        //        return View("error");
+        //    }
+
+        //    return View("error");
 
 
 
-        }
-        [HttpGet]
-        public ViewResult Products(string tag)
+        //}
+        [HttpPatch("{tag}")]
+        public IActionResult Products(string tag)
         {
             try
             {
@@ -95,74 +100,174 @@ namespace Midterm.Controllers
                                                  select product).ToList();
 
                 //List < Product > prods = pRepo.Products.ToList();
-                return View(products);
+                return Ok(products);
             }
-            catch 
+            catch
             {
-                return View("Error");
+                return NotFound();
             }
 
         }
-        [HttpGet]
-        public ViewResult ProductDetails(int ID)
+        [HttpGet("{ID}")]
+        public IActionResult ProductDetails(int ID)
         {
             try
             {
                 Product p = pRepo.GetProdByID(ID);
 
 
-                return View(p);
+                return Ok(p);
             }
             catch
             {
-                return View("Error");
+                return NotFound();
             }
 
         }
-    
         [HttpPost]
-        public IActionResult ProductDetails(string Name,string reviewText,string Command,int quantity, int id)
+        public IActionResult AddProd([FromBody]ProductViewModel prod)
         {
-
+            var i = prod.Price.ToString();
             try
             {
-                if (Command == "AddReview")
+                if (prod != null)
                 {
-                    Review review = new Review();
-                    review.Author = Name;
-                    review.ReviewText = reviewText;
-                    //review.ProductID = id;
-                    Product p = pRepo.GetProdByID(id);
-
-                    pRepo.AddReview(p, review);
-
-
-                    return View("Browse");
-                }
-                else if (Command == "AddCart")
-                {
-                    Product p;
-                    CartItem item = new CartItem();
-                    p = pRepo.GetProdByID(id);
-                    item.CartProd = p;
-                    item.Quantity = quantity;
-                    cRepo.AddToCart(item);
-                    cart.Add(item);
-                    return View("PurchaseConfirm", p);
+                    Product p = new Product
+                    {
+                        Title = prod.Title,
+                        Description = prod.Description,
+                        Price = int.Parse(i),
+                        ImgPath = prod.ImgPath,
+                        Tag = prod.Tag,
+                        IsNew = prod.IsNew
+                    };
+                    pRepo.AddProd(p);
+                    return Ok(p);
                 }
                 else
-                    return View("Error");
-
-
+                {
+                    return BadRequest();
+                }
             }
             catch
             {
-                return View("Error");
+                return NotFound();
             }
-          
 
         }
-       
+        [HttpPut("{Id}")]
+        public IActionResult Replace(int Id, [FromBody]ProductViewModel prod)
+        {
+            try
+            {
+                
+                
+                    Product p = new Product
+                    {
+                        Title = prod.Title.Trim(),
+                        Description = prod.Description.Trim(),
+                        Price = int.Parse(prod.Price.ToString()),
+                        ImgPath = prod.ImgPath.Trim(),
+                        Tag = prod.Tag,
+                        IsNew = prod.IsNew
+                    };
+
+                    if (pRepo.UpdateProd(Id, p) == true)
+                    {
+                        Console.WriteLine("Product Updated");
+                    }
+
+
+                    return Ok(p);
+                
+            }
+            catch
+            {
+                return BadRequest();
+            }
+            
+
+        }
+        [HttpPatch("{id}")]
+        public IActionResult UpdateProd(int id, [FromBody]PatchViewModel patchMod)
+        {
+            Product p = pRepo.GetProdByID(id);
+            switch (patchMod.Path)
+            {
+                case "title":
+                    p.Title = patchMod.Value;
+                    break;
+                case "description":
+                    p.Description = patchMod.Value;
+                    break;
+                case "price":
+                    p.Price = int.Parse(patchMod.Value);
+                    break;
+                case "imgPath":
+                    p.ImgPath = patchMod.Value;
+                    break;
+                case "tag":
+                    p.Tag = patchMod.Value;
+                    break;
+                case "isNew":
+                    p.IsNew = bool.Parse(patchMod.Value);
+                    break;
+                default:
+                    return BadRequest();
+
+
+            }
+            pRepo.UpdateProd(id, p);
+            return Ok(p);
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Product p = pRepo.GetProdByID(id);
+            if (p != null)
+            {
+                pRepo.Delete(id);
+                return NoContent(); //success nothing is found
+            }
+            else
+                return NotFound();
+        }
+
+
+
+        //[HttpPost]
+        //public IActionResult ProductDetails(string Name,string reviewText,string Command,int quantity, int id)
+        //{
+
+        //    try
+        //    {
+
+
+        //            Review review = new Review();
+        //            review.Author = Name;
+        //            review.ReviewText = reviewText;
+        //            //review.ProductID = id;
+        //            Product p = pRepo.GetProdByID(id);
+
+        //            pRepo.AddReview(p, review);
+
+
+        //            return View("Browse");
+
+
+
+
+
+
+        //    }
+        //    catch
+        //    {
+        //        return View("Error");
+        //    }
+
+
+        //}
+
 
         /// <summary>
         /// fills repo with prods that match the tag

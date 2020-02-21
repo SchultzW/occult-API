@@ -275,7 +275,7 @@ namespace OccultShop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult EditProd(string title, string description, string price, string imgPath, string tag, bool isNew, string productId)
+        public IActionResult EditProd(string title, string description, string price, string imgPath, string tag, bool isNew, int productId)
         {
             try
             {

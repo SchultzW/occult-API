@@ -75,6 +75,8 @@ namespace Midterm
                 Configuration["ConnectionStrings:LocalDbConnection"]));
             services.ConfigureApplicationCookie(opts =>
                         opts.LoginPath = "/Admin/Login");
+            services.AddDbContext<AppDbContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
 
         }
