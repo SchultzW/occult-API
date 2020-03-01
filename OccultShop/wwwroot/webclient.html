@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="ShopClient.js"></script>
+    <script>// set up event handlers for this page
+        function init() {
+            // set up the event handler for posting data
+            var form = document.getElementById("prodForm");
+            form.onsubmit = function(e) {
+                // prevent the form from sending an HTTP request when it is submitted
+                e.preventDefault();
+                addProd();
+            };
+            // Fill the table on the page with data when the page opens
+            getAllProds(fillTable);
+        }</script>
+    <title>OccultShop API Client</title>
+</head>
+
+<body onload="init()">
+
+    <h1>OccultShop Web Service Client</h1>
+
+    <nav>
+        <a href="#addProd">Add a Product to the database</a><br>
+        <a href="Update.html">Edit a product already in the database</a><br>
+    </nav>
+
+    <h2>List of all Products</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <section id="addProd">
+        <h2>Add a Product</h2>
+        <form id="prodForm">
+            <label for="title">Title</label>
+            <input name="title" placeholder="">
+            <br>
+            <label for="description">Description</label>
+            <input name="description" placeholder="">
+            <br>
+            <label for="price">Price</label>
+            <input name="price" placeholder="">
+            <br>
+            <label for="tag">Tag</label>
+            <input name="tag" placeholder="">
+            <br>
+            <label for="imgPath">Image Path</label>
+            <input name="imgPath" placeholder="">
+            <br><br>
+            <button type="submit">Add Prod</button>
+        </form>
+    </section>
+</body>
+
+</html>

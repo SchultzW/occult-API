@@ -55,6 +55,10 @@ namespace Midterm.Models
         {
             throw new NotImplementedException();
         }
+        public List<Product>GetAllProducts()
+        {
+            return context.Products.ToList();
+        }
 
         public void Clear()
         {
@@ -63,6 +67,7 @@ namespace Midterm.Models
 
         public bool UpdateProd(int id, Product newP)
         {
+           
             var prod = context.Products.Find(id);
 
             try
@@ -74,6 +79,7 @@ namespace Midterm.Models
                 prod.Price = newP.Price;
                 prod.Tag = newP.Tag;
                 prod.Title = newP.Title;
+                context.Update(prod);
                 context.SaveChanges();
 
                 return true;
@@ -89,6 +95,8 @@ namespace Midterm.Models
           
             return context.SaveChanges();
         }
+
+   
 
 
         //public void Clear()

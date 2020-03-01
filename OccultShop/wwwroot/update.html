@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Edit or Delete</title>
+    <script src="ShopClient.js"></script>
+    <script>// set event handlers and fill the select list
+        function init() {
+            // set up the event handler for posting prod data
+            var form = document.getElementById("ProdForm");
+
+            var updateButton = document.getElementById("updateButton");
+            updateButton.onclick = updateProd;
+
+            var replaceButton = document.getElementById("replaceButton");
+            replaceButton.onclick = replaceProd;
+
+            var deleteButton = document.getElementById("deleteButton");
+            deleteButton.onclick = deleteProd;
+
+            // set the event handler for the select list
+            var sel = document.getElementsByTagName("select")[0];
+            sel.onchange = getProdById;
+
+            // Fill the drop-down in the select list box with prod data when the page opens
+            getAllProds(fillSelectList);
+        }</script>
+</head>
+
+<body onload="init()">
+
+    <h1>Edit or Delete Product Information</h1>
+    <nav>
+        <a href="webclient.html">Home - List all Products</a><br>
+        <a href="webclient.html">Home - Add a Product</a><br>
+    </nav>
+    <form id="prodForm">
+        <p>
+            <select>
+                <option value="0">Choose a prod</option>
+            </select>
+        </p>
+        <input name="productId" value="" hidden>
+
+        <label for="title">Title</label>
+        <input name="title" placeholder="">
+        <br>
+        <label for="description">Description</label>
+        <input name="description" placeholder="">
+        <br>
+        <label for="price">Price</label>
+        <input name="price" placeholder="">
+        <br>
+        <label for="tag">Tag</label>
+        <input name="tag" placeholder="">
+        <br>
+        <label for="imgPath">Img Path </label>
+        <input name="imgPath" placeholder=""/>
+    </form>
+    <br>
+    <button id="updateButton">Update Price</button>
+    <p>
+        <button id="replaceButton">Replace Product</button> - Replace everything
+    </p>
+    <p>
+        <button id="deleteButton">Delete Product</button> - Remove the Product
+    </p>
+</body>
+
+</html>

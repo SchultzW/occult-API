@@ -28,6 +28,6 @@ namespace Midterm.Repos
         void Clear();
 
         int Delete(int id);
-
+        List<Product> GetAllProducts();
     }
 }

@@ -86,6 +86,21 @@ namespace Midterm.Controllers
 
 
         //}
+        [HttpGet]
+        public IActionResult GetProds()
+        {
+            try
+            {
+                var prods = pRepo.GetAllProducts();
+                return Ok(prods);
+            }
+            catch
+            {
+                return NotFound();
+            }
+            
+
+        }
         [HttpPatch("{tag}")]
         public IActionResult Products(string tag)
         {
@@ -113,7 +128,7 @@ namespace Midterm.Controllers
         {
             try
             {
-                Product p = pRepo.GetProdByID(ID);
+              Product p = pRepo.GetProdByID(ID);
 
 
                 return Ok(p);
@@ -156,11 +171,11 @@ namespace Midterm.Controllers
 
         }
         [HttpPut("{Id}")]
-        public IActionResult Replace(int Id, [FromBody]ProductViewModel prod)
+        public IActionResult Replace(string Id, [FromBody]ProductViewModel prod)
         {
             try
             {
-                
+                int id = int.Parse(Id);
                 
                     Product p = new Product
                     {
@@ -172,7 +187,7 @@ namespace Midterm.Controllers
                         IsNew = prod.IsNew
                     };
 
-                    if (pRepo.UpdateProd(Id, p) == true)
+                    if (pRepo.UpdateProd(id, p) == true)
                     {
                         Console.WriteLine("Product Updated");
                     }

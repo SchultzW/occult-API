@@ -13,16 +13,16 @@ namespace Midterm.Models
 
         public int ProductId { get; set; }
 
-        [Required(ErrorMessage = "Please enter a title")]
+        //[Required(ErrorMessage = "Please enter a title")]
 
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Please enter a description that is less than 250 characters")]
+        //[Required(ErrorMessage = "Please enter a description that is less than 250 characters")]
 
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter a price")]
-        [RegularExpression(@"^[1-9]\d{0,7}(?:\.\d{1,4})?$", ErrorMessage = "The price must be a positive number")]
+        //[Required(ErrorMessage = "Please enter a price")]
+        //[RegularExpression(@"^[1-9]\d{0,7}(?:\.\d{1,4})?$", ErrorMessage = "The price must be a positive number")]
         public int Price { get; set; }
 
         public string Tag { get; set; }

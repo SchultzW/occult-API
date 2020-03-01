@@ -46,17 +46,19 @@ namespace Midterm.Repos
             throw new NotImplementedException();
         }
 
-        public bool UpdateProd(string id, Product newP)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool UpdateProd(int id, Product newP)
         {
             throw new NotImplementedException();
         }
 
+       
+
         public int Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetAllProducts()
         {
             throw new NotImplementedException();
         }

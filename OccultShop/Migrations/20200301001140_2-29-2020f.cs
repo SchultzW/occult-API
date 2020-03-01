@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OccultShop.Migrations
 {
-    public partial class id : Migration
+    public partial class _2292020f : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,16 @@ namespace OccultShop.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(maxLength: 60, nullable: true),
+                    Address = table.Column<string>(maxLength: 60, nullable: true),
+                    Zip = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    IsAdmin = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,8 +74,8 @@ namespace OccultShop.Migrations
                 {
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
                     Tag = table.Column<string>(nullable: true),
                     ImgPath = table.Column<string>(nullable: true),
